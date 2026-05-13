@@ -1,25 +1,26 @@
 def insertion_sorting(List):
-    index =0
-    previous_index = 0
-    after_index = 0
-    print("Index: ", index)
+    length = len(List)
     sorted_list = []
-    for tuple in List:
-        if index == 0:
-            sorted_list.append(List)
-        if index == 1:
-            previous_index = index - 1
-            after_index = index + 1
-            if List[index][0] < List[previous_index][0]:
-                sorted_list.append(List[index])
-                sorted_list.append(List[previous_index])
-                sorted_list.append(List[after_index])
-        if index == 2:
-            previous_index = index - 1
-            after_index = index + 1
-            if List[index][0] < List[previous_index][0]:
-                sorted_list.append(List[index])
-        index += 1
-    print("Sorted List: ", sorted_list)
+    sorted_list.append(List)
+   
+    for i in range(length):
+        # print("i: ", i)
+        for j in range(i + 1, length):
+            # print("j: ", j)
+            for k in range(j + 1, length):
+                # print("k: ", k)
+                if List[j][0] < List[i][0]:
+                    sorted_list.append([List[j], List[i], List[k]])
+                else:
+                    sorted_list.append(List)
+    if sorted_list[1][2][0] < sorted_list[1][1][0]:
+        sorted_list.append([sorted_list[1][0], sorted_list[1][2], sorted_list[1][1]])
+    # else:
+    #     sorted_list.append(sorted_list[1])
+    # print(sorted_list)
     return sorted_list
-    
+
+example = [(3, "apple"), (1, "banana"), (2, "cherry")]
+result = insertion_sorting(example)
+for list in result:
+    print(list)
