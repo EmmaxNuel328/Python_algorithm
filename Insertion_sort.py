@@ -8,7 +8,8 @@ def insertion_sorting(List):
         print("FIRST j: ", j)
         while j >= 0 and List[j][0] > List[j + 1][0]:
             List[j], List[j + 1] = List[j + 1], List[j]
-        j -= 1
+            print("j: ", j)
+        # j -= 1
         print("SECOND j: ", j)
         sorted_list.append(List[:])
     return sorted_list
